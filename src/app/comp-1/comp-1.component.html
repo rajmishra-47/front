@@ -1,0 +1,52 @@
+<p>comp-1 works!</p>
+
+
+<button  (click)="editButtonClicked()">Edit</button>
+
+<button (click)="applyChange()" >Apply</button>
+
+
+<div class="Comp-1">
+
+  <div class="Chart-1">
+
+    <div class="c1">
+
+      <canvas id="Chart-1" class="cc"></canvas>
+
+    </div>
+
+<div class="myTable">
+
+  <div class="tt1">
+    <table mat-table [dataSource]="jsn" class="mat-elevation-z0" matSort (matRowClick)="onRowClicked($event)">
+
+      <ng-container matColumnDef="lable" >
+        <th mat-header-cell *matHeaderCellDef  mat-sort-header class="col-headers" ><span class="sz1">Well Name</span></th>
+        <td mat-cell *matCellDef="let element" > <span class="sz1">{{element.wellname}}</span> </td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="num" >
+        <th mat-header-cell *matHeaderCellDef ><span class="sz1">Well Data</span></th>
+        <td mat-cell *matCellDef="let element"  >
+          <input  *ngIf="editflag" matInput [value]="element.wellval" [(ngModel)]="element.wellval" placeholder="" [ngStyle]="{'background-color':'grey'}" >
+          <span *ngIf="!editflag" class="sz1">{{element.wellval}}</span>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onRowClicked(row)" ></tr>
+    </table>
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+<!-- <p> {{labels}} </p> -->
+
+

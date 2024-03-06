@@ -1,0 +1,12 @@
+
+.tt1{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+
+.myTable{
+  width: 25%;
+  margin-left: 120px
+}
