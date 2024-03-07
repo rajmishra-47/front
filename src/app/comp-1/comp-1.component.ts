@@ -12,6 +12,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import Chart from 'chart.js/auto';
+import { FormControl, Validators } from '@angular/forms';
 
 
 
@@ -34,22 +35,38 @@ export class Comp1Component {
   labels:any
   Value:any
 
-  public chart: any;
+  public chart1: any;
+  
+  public chart2: any;
+
   chartDisabled: boolean = false;
+
+
+  
+  wellValueControl:any = new FormControl('', [Validators.required, Validators.min(1)]);
 
 plotChart(Value:any):any{
   if (!this.chartDisabled) {
-    // Check if a chart instance already exists
-    if (this.chart) {
-      this.chart.destroy(); // Destroy the existing chart instance
+   
+    if (this.chart1,this.chart2) {
+      this.chart1.destroy();
+      this.chart2.destroy();
     }
-    // Create a new chart instance
-    this.chart = new Chart("Chart-1", {
+   
+    this.chart1 = new Chart("Chart-1", {
       type: 'pie',
       data: {
         datasets: [{ data: this.Value, backgroundColor: ['Red', 'blue', 'Green', 'Yellow'] }]
       },
-      options: { aspectRatio: 2.5 }
+      options: { aspectRatio: 1.5 }
+    });
+
+    this.chart2 = new Chart("Chart-2", {
+      type: 'pie',
+      data: {
+        datasets: [{ data: this.Value, backgroundColor: ['Red', 'blue', 'Green', 'Yellow'] }]
+      },
+      options: { aspectRatio: 1.5 }
     });
   }
 }
@@ -88,9 +105,25 @@ plotChart(Value:any):any{
   onRowClicked(dummy:any){};
   editflag:boolean=false;
 
+  editflag1:boolean=false;
 
     editButtonClicked(){
       this.editflag=!this.editflag;
       this.chartDisabled = !this.chartDisabled;
     }
+
+
+    editButtonClicked1(){
+      this.editflag1=!this.editflag1;
+      this.chartDisabled = !this.chartDisabled;
+    }
+
+    table:any[]=[
+      {name:"Raj", age:22},
+      {name:"Lav", age:42}
+                ]
+
+
+
+  
 }

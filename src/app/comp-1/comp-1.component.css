@@ -7,6 +7,35 @@
 
 
 .myTable{
-  width: 25%;
-  margin-left: 120px
+  width: 15%;
+  /* margin-left: 120px */
+}
+
+
+.Chart1{
+  display:flex;
+  flex-direction: row;
+  margin-left: 50px;
+}
+
+.Comp-1{
+  display: flex;
+  flex-direction: row;
+
+  width: auto;
+  height: 50%;
+}
+
+
+.edit-box {
+  padding: 10px;
+  margin: 0;
+  background-color: #121212;
+  box-sizing: border-box;
+  border: 2px solid grey;
+  color: #FFFFFF;
+  height: 35px;
+  width: 50px;
+  border-radius: 5px;
+ 
 }
