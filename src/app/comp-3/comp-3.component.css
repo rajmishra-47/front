@@ -1,0 +1,49 @@
+/* .FT{
+   float: left;
+   font-size: large;
+} */
+
+.Cards{
+    
+    display: flex;
+    flex-direction: row;
+  
+}
+
+.TnB,.CnT{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+
+.edit-box {
+    padding: 10px;
+    margin: 0;
+    background-color: #f1e9e9;
+    box-sizing: border-box;
+    border: 2px solid grey;
+    color: #01ff2b;
+    height: 35px;
+    width: 50px;
+    border-radius: 5px;
+}
+
+
+
+.Card-1,.Card-2{
+
+    margin-left: 50px;
+}
+
+.Card-2{
+    margin-right: 20px;
+}
+
+.Main{
+
+    
+
+}

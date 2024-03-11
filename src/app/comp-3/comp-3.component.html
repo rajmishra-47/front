@@ -1,1 +1,168 @@
-<p>comp-3 works!</p>
+
+
+<div class="Main">
+    
+    <p class="FT"><span><h2>Total CO2 Stored per Location</h2></span></p>
+
+    <div class="Cards">
+
+
+<!--  -->
+<div class="Card-0">
+
+  <p class="T1"><Span><h2>Total</h2></Span></p>
+  <div class="TnB">
+      <p class="T1"></p>
+      
+      <!-- <button mat-raised-button color="primary" (click)="editButtonClicked1()">{{Wb1}}</button>
+      <button mat-raised-button color="primary" (click)="applyChange()">Apply</button> -->
+
+      
+  </div>
+
+  <div class="CnT">
+      <div class="c1">
+
+          <canvas id="MyChart-1" class="cc"></canvas>
+    
+        </div>
+
+        <div class="tt1">
+          <table mat-table [dataSource]="Total" class="mat-elevation-z0" matSort (matRowClick)="onRowClicked($event)">
+      
+            <ng-container matColumnDef="lable" >
+              <th mat-header-cell *matHeaderCellDef  mat-sort-header class="col-headers" ><span class="sz1">Total Co2 Stored</span></th>
+              <td mat-cell *matCellDef="let element" > <span class="sz1">{{element.name}}</span> </td>
+            </ng-container>
+      
+      
+            <ng-container matColumnDef="num" >
+              <th mat-header-cell *matHeaderCellDef ><span class="sz1"></span></th>
+              <td mat-cell *matCellDef="let element"  >
+                
+                
+                <span >{{(element.Val)}}</span>
+              
+              </td>
+            </ng-container>
+      
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onRowClicked(row)" ></tr>
+          </table>
+        </div>
+      
+  </div>
+
+</div>
+
+<!--  -->
+
+
+        <div class="Card-1">
+
+          <p class="T1"><span><h2>Wells</h2></span></p>
+            <div class="TnB">
+                <p class="T1"></p>
+                
+                <button mat-raised-button color="primary" (click)="editButtonClicked1()">{{Wb1}}</button>
+                <button mat-raised-button color="primary" (click)="applyChange()">Apply</button>
+
+                
+            </div>
+
+            <div class="CnT">
+                <div class="c1">
+
+                    <canvas id="MyChart-2" class="cc"></canvas>
+              
+                  </div>
+
+                  <div class="tt1">
+                    <table mat-table [dataSource]="Wells" class="mat-elevation-z0" matSort (matRowClick)="onRowClicked($event)">
+                
+                      <ng-container matColumnDef="lable" >
+                        <th mat-header-cell *matHeaderCellDef  mat-sort-header class="col-headers" ><span class="sz1">Well Name</span></th>
+                        <td mat-cell *matCellDef="let element" > <span class="sz1">{{element.wname}}</span> </td>
+                      </ng-container>
+                
+                
+                      <ng-container matColumnDef="num" >
+                        <th mat-header-cell *matHeaderCellDef ><span class="sz1">Well Data</span></th>
+                        <td mat-cell *matCellDef="let element"  >
+                          
+                          <input #inputField (blur)="checkInputValue(inputField)" 
+
+                           class="edit-box"  *ngIf="editflag1" matInput [value]="element.wval" [(ngModel)]="element.wval" placeholder="1" [ngStyle]="{'background-color': (element.wval < 0 ? 'Red'  : 'grey')}" >
+                          <span *ngIf="!editflag1" class="sz1">{{(element.wval<0 ? 1:element.wval)}}</span>
+                        
+                        </td>
+                      </ng-container>
+                
+                      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                      <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onRowClicked(row)" ></tr>
+                    </table>
+                  </div>
+                
+            </div>
+
+        </div>
+
+
+
+
+        <div class="Card-2">
+          
+        <p class="T1"><span><h2>Reserviour</h2></span></p>
+            <div class="TnB">
+                <p class="T1"></p>
+                <button mat-raised-button color="primary" (click)="editButtonClicked2()">{{Rb1}}</button>
+                <button mat-raised-button color="primary" (click)="applyChange()">Apply</button>
+
+            </div>
+
+            <div class="CnT">
+                <div class="c1">
+
+                    <canvas id="MyChart-3" class="cc"></canvas>
+              
+                  </div>
+
+                  <div class="tt1">
+                    <table mat-table [dataSource]="Res" class="mat-elevation-z0" matSort (matRowClick)="onRowClicked($event)">
+                
+                      <ng-container matColumnDef="lable" >
+                        <th mat-header-cell *matHeaderCellDef  mat-sort-header class="col-headers" ><span class="sz1">Reserviour Name</span></th>
+                        <td mat-cell *matCellDef="let element" > <span class="sz1">{{element.resname}}</span> </td>
+                      </ng-container>
+                
+                
+                      <ng-container matColumnDef="num" >
+                        <th mat-header-cell *matHeaderCellDef ><span class="sz1">Reserviour Data</span></th>
+                        <td mat-cell *matCellDef="let element"  >
+
+                          <input #inputField (blur)="checkInputValue(inputField)" class="edit-box"  *ngIf="editflag2" matInput [value]="element.resval" [(ngModel)]="element.resval" placeholder="1" [ngStyle]="{'background-color': (element.resval < 0 ? 'Red'  : 'grey')}" >
+                          <span *ngIf="!editflag2" class="sz1">{{ ((element.resval<0) ? 1:element.resval)}}</span>
+                        
+                        </td>
+                      </ng-container>
+                
+                      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                      <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onRowClicked(row)" ></tr>
+                    </table>
+                  </div>
+                
+            </div>
+
+        </div>
+
+
+
+
+        
+    </div>
+
+</div>
+
+
+
+

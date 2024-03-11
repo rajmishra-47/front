@@ -30,6 +30,13 @@ export class Comp1Component {
 
   constructor(private http: HttpClient) { }
 
+  table:any=[
+    {name:"Raj", age:22},
+    {name:"Lav", age:42}
+              ]
+
+    Age:any;
+
   jsn:any
 
   labels:any
@@ -39,11 +46,13 @@ export class Comp1Component {
   
   public chart2: any;
 
+  public chart3: any;
+
   chartDisabled: boolean = false;
 
-
   
-  wellValueControl:any = new FormControl('', [Validators.required, Validators.min(1)]);
+
+
 
 plotChart(Value:any):any{
   if (!this.chartDisabled) {
@@ -58,7 +67,7 @@ plotChart(Value:any):any{
       data: {
         datasets: [{ data: this.Value, backgroundColor: ['Red', 'blue', 'Green', 'Yellow'] }]
       },
-      options: { aspectRatio: 1.5 }
+      options: { aspectRatio: 2.0 }
     });
 
     this.chart2 = new Chart("Chart-2", {
@@ -66,8 +75,28 @@ plotChart(Value:any):any{
       data: {
         datasets: [{ data: this.Value, backgroundColor: ['Red', 'blue', 'Green', 'Yellow'] }]
       },
+      options: { aspectRatio:2.0 }
+    });
+  }
+}
+
+plotChart3(Value:any):any{
+  if (!this.chartDisabled) {
+   
+    if (this.chart3) {
+      this.chart3.destroy();
+    }
+
+ 
+    this.chart3 = new Chart("Chart-3", {
+      type: 'pie',
+      data: {
+        datasets: [{ data: this.Age, backgroundColor: ['Red', 'blue'] }]
+      },
       options: { aspectRatio: 1.5 }
     });
+
+  
   }
 }
 
@@ -85,7 +114,9 @@ plotChart(Value:any):any{
     this.Value=this.jsn.map((data:any)=>Number(data.wellval) )
     console.log(this.Value);
 
+    this.Age=this.table.map((data:any)=>Number(data.age) )
   this.plotChart(this.Value)
+  this.plotChart3(this.Age)
   })
   }
 
@@ -99,7 +130,12 @@ plotChart(Value:any):any{
     this.Value=this.jsn.map((data:any)=>Number(data.wellval) )
     console.log(this.Value);
 
+    this.Age=this.table.map((data:any)=>Number(data.age) )
+
     this.plotChart(this.Value)
+
+    this.plotChart3(this.Age)
+    
   }
 
   onRowClicked(dummy:any){};
@@ -118,11 +154,7 @@ plotChart(Value:any):any{
       this.chartDisabled = !this.chartDisabled;
     }
 
-    table:any[]=[
-      {name:"Raj", age:22},
-      {name:"Lav", age:42}
-                ]
-
+    
 
 
   

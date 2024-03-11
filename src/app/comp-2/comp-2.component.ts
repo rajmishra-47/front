@@ -13,6 +13,7 @@ import {MatButtonModule} from '@angular/material/button';
 // import { Comp1Component } from '../comp-1/comp-1.component';
 
 
+
 @Component({
   selector: 'app-comp-2',
   standalone: true,
@@ -23,9 +24,9 @@ import {MatButtonModule} from '@angular/material/button';
 
 export class Comp2Component {
   foods = [
-    {value: 'steak-0', viewValue: 'Steak'},
-    {value: 'pizza-1', viewValue: 'Pizza'},
-    {value: 'tacos-2', viewValue: 'Tacos'}
+    {value: '0', viewValue: 'A'},
+    {value: '1', viewValue: 'B'},
+    {value: '2', viewValue: 'C'}
   ];
   
 }

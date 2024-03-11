@@ -6,9 +6,16 @@
 }
 
 .b1{
-    margin-left:20px;
-
-    /* padding: 10px; */
+    margin-left:20px; 
 }
+
+.op1 {
+    border-radius: 23%; 
+  }
+
+
+  #btn{
+    margin-top: 10px;
+  }
 
 

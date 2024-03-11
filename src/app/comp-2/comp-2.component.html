@@ -5,31 +5,27 @@
 
     <div class="b1">
 
-     <!-- <h4>Basic mat-select</h4> -->
+     <mat-form-field >
+       <mat-label></mat-label>
+       <mat-select>
+         @for (food of foods; track food) {
+           <mat-option [value]="food.value">{{food.viewValue}}</mat-option>
+         }
+       </mat-select>
+     </mat-form-field>
+     </div>
      
-     <mat-form-field>
-      <mat-select placeholder="Favorite food">
-        <mat-option *ngFor="let food of foods" [value]="food.value">
-          {{ food.viewValue }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-
-    </div>
-
-
-
     <div class="b1">
 
-    <!-- <h4>Basic mat-select</h4> -->
+     <mat-form-field>
+       <mat-label></mat-label>
+       <mat-select>
+         @for (food of foods; track food) {
+           <mat-option [value]="food.value">{{food.viewValue}}</mat-option>
+         }
+       </mat-select>
+     </mat-form-field>
 
-    <mat-form-field>
-      <mat-select placeholder="Favorite food">
-        <mat-option *ngFor="let food of foods" [value]="food.value">
-          {{ food.viewValue }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
 
     </div>
 
@@ -38,7 +34,7 @@
 
     <div class="b1" id="btn">
 
-      <button  >Apply Changes</button>
+      <button mat-raised-button color="primary">Apply changes</button>
       
     </div>
 

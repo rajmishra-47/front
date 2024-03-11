@@ -1,0 +1,30 @@
+.Main{
+
+    /* border: 2px solid black; */
+
+    height: auto;
+}
+
+
+.Image1{
+    height: 100px;
+    width: 100px;
+}
+
+.TnI
+{
+    display: flex;
+    flex-direction: row;
+
+}
+
+.b1{
+    margin-left: 20%;
+}
+
+.Table{
+
+    padding-left: 30%;
+
+    padding-right: 50%;
+}
